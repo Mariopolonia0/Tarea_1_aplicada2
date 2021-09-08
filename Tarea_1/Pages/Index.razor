@@ -1,0 +1,54 @@
+﻿@page "/"
+
+<h1>Hello, Enel!</h1>
+
+<h5>Digite Numero 1</h5>
+
+<!--div-- class="input-group">
+    <InputNumber @bind-Value="@numero1" class="focus" />
+</!--div-->
+
+<input id="num1" type="number" @bind-value="numero1" />
+<h5>Digite Numero 2</h5>
+<input id="num2" type="number" @bind-value="numero2" />
+<h5> </h5>
+<input type="button" value="Resultado" @onclick="HacerCalculo" />
+<input type="button" value="Limpiar" @onclick="limpiar" />
+<h5> </h5>
+<h5>La Suma Es:@suma </h5>
+<h5>La Resta Es:@resta </h5>
+<h5>La Multiplicacion Es:@multiplicacion </h5>
+<h5>La Divicion Es:@dividir </h5>
+
+@code {
+        public int numero1 = 0;
+        public int numero2 = 0;
+        public float suma =0;
+        public float resta = 0;
+        public float multiplicacion = 0;
+        public float dividir = 0;
+
+
+        public void HacerCalculo()
+        {
+            if (numero1 == 0 || numero2 == 0)
+        {
+            return;
+        }
+        suma=numero1 + numero2;
+        resta = numero1 - numero2;
+        multiplicacion = numero1 * numero2;
+        dividir = numero1 / numero2;
+    }
+
+    public void limpiar()
+    {
+        numero1 = 0;
+        numero2 = 0;
+        suma = 0;
+        resta = 0;
+        multiplicacion = 0;
+        dividir = 0;
+    }
+
+}
